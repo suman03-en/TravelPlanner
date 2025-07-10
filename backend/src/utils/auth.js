@@ -24,6 +24,6 @@ export const autheticate = async(email,password)=>{
 }
 
 export const generateToken = (user)=>{
-    const token = jwt.sign({user_id:user.user_id,email:user.email},JWT_SECRET,{ expiresIn: '1h' });
+    const token = jwt.sign({user_id:user.user_id,email:user.email},JWT_SECRET,{ expiresIn: '1d' });
     return token;
 }

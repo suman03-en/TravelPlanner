@@ -6,6 +6,8 @@ import {
     getTripController,updateTripController
 
  } from '../controllers/tripController.js';
+
+import { createPlanController } from '../controllers/planController.js';
 import { verifyToken } from '../middleware/verifyToken.js';
 
 const router = express.Router();
@@ -18,6 +20,8 @@ router.get('/',getAllTripsController);
 router.get('/:id',getTripController);
 router.put('/:id',updateTripController);
 router.delete('/:id',deleteTripController);
+
+router.post('/:id/plans',createPlanController);
 
 
 export default router;

@@ -13,3 +13,14 @@ export const createPlanTable = async()=>{
     await pool.query(query);
     console.log("Plans table created or already exists");
 }
+
+export  const createPlan = async(cd)=>{
+    const query = `
+    INSERT INTO plans(trip_id,category,budget_amount)
+    VALUES($1,$2,$3)
+    RETURNING *;
+    `;
+    const values = Object.values(cd);
+    const result = await pool.query(query,values);
+    return result.rows[0];
+}
