@@ -97,11 +97,11 @@ Delete a specific trip.
 
 Each trip can have multiple budget categories (food, transport, etc.)
 
-POST /api/trips/:tripId/plans
+POST /api/trips/:tripId/plans  ✅
 Add a budget plan to a trip.
 Body: { category, amount }
 
-GET /api/trips/:tripId/plans
+GET /api/trips/:tripId/plans  ✅
 Get all plans for a trip.
 
 PUT /api/plans/:planId

@@ -24,3 +24,12 @@ export  const createPlan = async(cd)=>{
     const result = await pool.query(query,values);
     return result.rows[0];
 }
+
+export const getAllPlans = async(trip_id)=>{
+    const query = `
+        SELECT * FROM plans
+        WHERE trip_id=$1;
+    `;
+    const result = await pool.query(query,[trip_id]);
+    return result.rows;
+}
