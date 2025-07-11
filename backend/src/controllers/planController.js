@@ -1,9 +1,8 @@
-import { createPlan, getAllPlans } from "../models/planModel.js";
-
+import { createPlan, getAllPlans, deletePlan } from "../models/planModel.js";
+import { CustomError } from "../utils/customError.js";
 
 export const createPlanController = async (req,res)=>{
     const trip_id = Number(req.params.id);
-    if(isNaN(trip_id)) return res.status(400).json({error:"Invalid id"});
 
     try{
 
@@ -20,24 +19,37 @@ export const createPlanController = async (req,res)=>{
         });
 
     }catch(error){
-        return res.status(500).json({
-            error:error.message
-        });
+        next(error);
     }
 }
 
-export const getPlansController = async(req,res)=>{
+export const getPlansController = async(req,res,next)=>{
     const trip_id = Number(req.params.id);
-    if(isNaN(trip_id)) return res.status(400).json({error:"Invalid id"});
     
     try{
         const plans = await getAllPlans(trip_id);
         return res.status(200).json(plans);
     }catch(error){
-        return res.status(500).json({
-            error:error.message
-        });
+        next(error);
     }
+}
 
+export const deletePlanController = async(req,res,next)=>{
+    const user_id = req.user.user_id;
+    const plan_id = Number(req.params.id);
+    try{
+        const plan = await deletePlan(plan_id,user_id);
+        if(plan){
+            return res.status(200).json({
+                message:"Successful deletion",
+                plan : plan
+            });
+        }else{
+            throw new CustomError("Unauthorised or plan not found");
+        }
+
+    }catch(error){
+        next(error);
+    }
 
 }

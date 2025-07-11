@@ -1,7 +1,8 @@
 import { createTrip,getAllTrips, getTrip,updateTrip ,deleteTrip} from "../models/tripModel.js";
+import { CustomError } from "../utils/customError.js";
 
 //create new trip 
-export const createTripController = async (req,res)=>{
+export const createTripController = async (req,res,next)=>{
     const user_id = req.user.user_id;
     const cleaned_data = {
         user_id : user_id,
@@ -21,17 +22,15 @@ export const createTripController = async (req,res)=>{
                 trip:trip
             });
         }else{
-            return res.status(400).json({
-                error:"Failed to create trip."
-            });
+            throw new CustomError("Failed to create trip.",400);
         }
     }catch(error){
-        return res.status(500).json({error:error.message});
+        next(error);
     }
 }
 
 // returns all the trips of the current user 
-export const getAllTripsController = async(req,res)=>{
+export const getAllTripsController = async(req,res,next)=>{
 
     try{
         const user_id = req.user.user_id;
@@ -40,39 +39,29 @@ export const getAllTripsController = async(req,res)=>{
         return res.status(200).json(trips);
 
     }catch(error){
-        return res.status(500).json({
-            error:"Internal server error",
-            detail:error.message
-        })
+       next(error);
     }
 }
 
-export const getTripController = async (req,res)=>{
+export const getTripController = async (req,res,next)=>{
     const user_id = req.user.user_id;
     const trip_id = Number(req.params.id);
-    if(isNaN(trip_id)){
-        return res.status(400).json({
-            error:"Invalid id"
-        });
-    }
 
     try{
         const trip = await getTrip(user_id,trip_id);
         if(!trip){
-            return res.status(404).json({ message: 'Trip not found' });
+            throw new CustomError("Unathorized or trip not found",404)
         }
 
         return res.status(200).json(trip);
 
     }catch(error){
-        return res.status(404).json({
-            error:error.message,
-        });
+        next(error);
     }
 }
 
 
-export const updateTripController = async(req,res)=>{
+export const updateTripController = async(req,res,next)=>{
     const trip_id = Number(req.params.id);
     const updatedData = {
         trip_id : trip_id,
@@ -91,25 +80,17 @@ export const updateTripController = async(req,res)=>{
                 trip:updatedTrip
             });
         }else{
-            return res.status(500).json({
-                message:"Trip updation unsuccessfull"
-            })
+            throw new CustomError("Failed to update trip",500);
         }
     }catch(error){
-        return res.status(500).json({
-            error:error.message
-        });
+        next(error);
     }
 }
 
 
 export const deleteTripController = async(req,res)=>{
     const trip_id = Number(req.params.id)
-    if(isNaN(trip_id)){
-        return res.status(400).json({
-            error:"Invalid trip id"
-        });
-    }
+
     try{
         const deletedTrip = await deleteTrip(trip_id);
         return res.status(200).json({
@@ -117,8 +98,6 @@ export const deleteTripController = async(req,res)=>{
             trip:deletedTrip
         });
     }catch(error){
-        return res.status(500).json({
-            error:error.message
-        });
+        next(error);
     }
 }

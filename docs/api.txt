@@ -107,6 +107,7 @@ Get all plans for a trip.
 No features to edit and update plan.(Just add and delete would be enough);
 
 DELETE /api/plans/:planId
+provide id and the plan with that id is deleted.
 Delete a specific plan.
 
 4. Document Management

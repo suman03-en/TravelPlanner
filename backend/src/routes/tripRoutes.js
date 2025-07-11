@@ -6,7 +6,7 @@ import {
     getTripController,updateTripController
 
  } from '../controllers/tripController.js';
-
+import { validateIdparam } from '../middleware/validateId.js';
 import { createPlanController, getPlansController } from '../controllers/planController.js';
 import { verifyToken } from '../middleware/verifyToken.js';
 
@@ -17,12 +17,12 @@ router.use(verifyToken);
 
 router.post('/',createTripController);
 router.get('/',getAllTripsController);
-router.get('/:id',getTripController);
-router.put('/:id',updateTripController);
-router.delete('/:id',deleteTripController);
+router.get('/:id',validateIdparam,getTripController);
+router.put('/:id',validateIdparam,updateTripController);
+router.delete('/:id',validateIdparam,deleteTripController);
 
-router.post('/:id/plans',createPlanController);
-router.get('/:id/plans',getPlansController);
+router.post('/:id/plans',validateIdparam,createPlanController);
+router.get('/:id/plans',validateIdparam,getPlansController);
 
 
 export default router;
