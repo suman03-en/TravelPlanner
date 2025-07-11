@@ -104,8 +104,7 @@ Body: { category, amount }
 GET /api/trips/:tripId/plans  ✅
 Get all plans for a trip.
 
-PUT /api/plans/:planId
-Update a specific plan.
+No features to edit and update plan.(Just add and delete would be enough);
 
 DELETE /api/plans/:planId
 Delete a specific plan.

@@ -33,3 +33,13 @@ export const getAllPlans = async(trip_id)=>{
     const result = await pool.query(query,[trip_id]);
     return result.rows;
 }
+
+export const deletePlan = async(plan_id) =>{
+    const query = `
+        DELETE FROM plans
+        WHERE plan_id = $1
+        RETURNING *;
+    `;
+    const result = await pool.query(query,[plan_id]);
+    return result.rows[0];
+}
