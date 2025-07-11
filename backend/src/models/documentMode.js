@@ -10,5 +10,38 @@ export const createDocumentTable = async()=>{
     );
     `;
     await pool.query(query);
+    console.log("Document table created or already exists");
 
+}
+
+export const createDocument = async(cd)=>{
+    const query = `
+        INSERT INTO plans(trip_id,document_type,status)
+        VALUES($1,$2,$3)
+        RETURNING *;
+    `;
+    const values = Object.values(cd);
+    const result = await pool.query(query,values);
+    return result.rows[0];
+}
+
+export const getAllDocuments = async(trip_id)=>{
+
+    const query = `
+        SELECT document_id,document_type,status
+        FROM documents 
+        WHERE trip_id = $1;
+    `;
+    const result = await pool.query(query,[trip_id]);
+    return result.rows;
+}
+
+export const deleteDocument = async(doc_id)=>{
+    const query = `
+        DELETE FROM documents
+        WHERE document_id = $1
+        RETURNING *;
+    `;
+    const result = await pool.query(query,[doc_id]);
+    return result.rows[0];
 }
