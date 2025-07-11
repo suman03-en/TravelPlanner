@@ -16,7 +16,7 @@ export const createDocumentTable = async()=>{
 
 export const createDocument = async(cd)=>{
     const query = `
-        INSERT INTO plans(trip_id,document_type,status)
+        INSERT INTO documents(trip_id,document_type,status)
         VALUES($1,$2,$3)
         RETURNING *;
     `;

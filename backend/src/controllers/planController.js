@@ -45,7 +45,7 @@ export const deletePlanController = async(req,res,next)=>{
                 plan : plan
             });
         }else{
-            throw new CustomError("Unauthorised or plan not found");
+            throw new CustomError("Unauthorised or plan not found",401);
         }
 
     }catch(error){

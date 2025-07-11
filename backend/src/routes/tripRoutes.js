@@ -8,6 +8,8 @@ import {
  } from '../controllers/tripController.js';
 import { validateIdparam } from '../middleware/validateId.js';
 import { createPlanController, getPlansController } from '../controllers/planController.js';
+import { createDocumentController, getAllDocumentsController } from '../controllers/documentController.js';
+
 import { verifyToken } from '../middleware/verifyToken.js';
 
 const router = express.Router();
@@ -23,6 +25,9 @@ router.delete('/:id',validateIdparam,deleteTripController);
 
 router.post('/:id/plans',validateIdparam,createPlanController);
 router.get('/:id/plans',validateIdparam,getPlansController);
+
+router.post('/:id/documents',validateIdparam,createDocumentController);
+router.get('/:id/documents',validateIdparam,getAllDocumentsController);
 
 
 export default router;
