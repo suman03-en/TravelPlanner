@@ -13,12 +13,9 @@ This repository contains the **backend API**, developed with **Node.js**, **Expr
 * [Project Structure](#project-structure)
 * [Installation](#installation)
 * [Environment Variables](#environment-variables)
-* [Database Migration](#database-migration)
 * [Running the App](#running-the-app)
 * [API Endpoints](#api-endpoints)
 * [Expected Outcomes](#expected-outcomes)
-* [Authors](#authors)
-* [License](#license)
 
 ---
 
