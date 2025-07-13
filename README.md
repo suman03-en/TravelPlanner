@@ -58,8 +58,7 @@ In today’s fast-paced world, organizing trips can be complicated due to the la
 | **Frontend**         | React Native (Separate Mobile Client) |
 | **Backend**          | Node.js, Express.js                   |
 | **Database**         | PostgreSQL                            |
-| **ORM**              | Sequelize                             |
-| **Views (Optional)** | EJS (Server-rendered pages)           |
+| **ORM**              | No(Raw sql)                           |
 
 ---
 
@@ -110,17 +109,6 @@ DB_HOST=localhost
 JWT_SECRET=your_jwt_secret
 ```
 
----
-
-## Database Migration
-
-Run the following command to create the database schema:
-
-```bash
-npx sequelize-cli db:migrate
-```
-
----
 
 ## Running the App
 
