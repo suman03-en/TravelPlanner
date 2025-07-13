@@ -138,6 +138,9 @@ npm run dev
 | **DELETE** | `/trips/:id`         | Delete trip              |
 | **POST**   | `/documents`         | Upload document          |
 | **GET**    | `/documents/:tripId` | Get documents for a trip |
+| **GET**    | `/trip/:tripId/plans` | Get all plans for a trip |
+| **CREATE**    | `/trips/:tripId/plans` | Create plans for a trip |
+| **DELETE**    | `/plan/:planId` | Delete plan for a trip |
 
 ---
 
@@ -147,19 +150,6 @@ npm run dev
 * **Secure authentication and data management**.
 * Practical **academic demonstration of DBMS concepts**.
 * **Scalable architecture** for future enhancements.
-
----
-
-## Authors
-
-* **Prenisha Upreti** (THA079BEI029)
-* **Suman Phuyal** (THA079BEI042)
-
----
-
-## License
-
-This project is licensed under the **MIT License**.
 
 ---
 
