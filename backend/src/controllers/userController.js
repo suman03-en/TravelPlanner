@@ -3,11 +3,13 @@ import { autheticate, generateToken } from "../utils/auth.js";
 import { CustomError } from "../utils/customError.js";
 
 export const registerUserController = async (req, res,next) => {
+  const {name,email,password} = req.body;
+  
   try {
     const cleaned_data = {
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
+      name: name,
+      email: email,
+      password: password,
     };
     const insertedUser = await insertUser(cleaned_data);
     res.status(201).json({
