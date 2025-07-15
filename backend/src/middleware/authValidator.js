@@ -1,5 +1,5 @@
 import {body,validationResult} from 'express-validator';
-import { CustomError } from '../utils/customError';
+import { CustomError } from '../utils/customError.js';
 
 
 // Register Validation
@@ -37,7 +37,7 @@ export const loginValidation = [
 ];
 
 //Trip validation
-const tripValidation = [
+export const tripValidation = [
   body("trip_name").notEmpty().withMessage("Trip name is required."),
   body("location").notEmpty().withMessage("Location is required."),
   body("start_date").notEmpty().withMessage("Start date is required."),
@@ -45,13 +45,13 @@ const tripValidation = [
 
 //Plan validation
 
-const planValidation = [
+export const planValidation = [
   body("category").notEmpty().withMessage("Category is required."),
   body("budget_amount").isNumeric().withMessage("Budget amount must a number."),
 ];
 
 //Document validation
-const documentValidation = [
+export const documentValidation = [
   body("document_type").notEmpty().withMessage("Document type is required."),
   body("status").notEmpty().withMessage("Status is required."),
 ];
