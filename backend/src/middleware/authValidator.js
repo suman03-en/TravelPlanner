@@ -1,4 +1,5 @@
 import {body,validationResult} from 'express-validator';
+import { CustomError } from '../utils/customError';
 
 
 // Register Validation
@@ -35,11 +36,38 @@ export const loginValidation = [
         .withMessage('Password is required.')
 ];
 
+//Trip validation
+const tripValidation = [
+  body("trip_name").notEmpty().withMessage("Trip name is required."),
+  body("location").notEmpty().withMessage("Location is required."),
+  body("start_date").notEmpty().withMessage("Start date is required."),
+];
+
+//Plan validation
+
+const planValidation = [
+  body("category").notEmpty().withMessage("Category is required."),
+  body("budget_amount").isNumeric().withMessage("Budget amount must a number."),
+];
+
+//Document validation
+const documentValidation = [
+  body("document_type").notEmpty().withMessage("Document type is required."),
+  body("status").notEmpty().withMessage("Status is required."),
+];
+
+
 // Middleware to handle validation result
 export const validate = (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
+        return next(
+            new CustomError(
+                'Validation failed',
+                400,
+                errors.array()
+            )
+        );
     }
     next();
 };

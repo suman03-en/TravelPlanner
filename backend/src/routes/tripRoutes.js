@@ -17,33 +17,12 @@ import {
 } from "../controllers/documentController.js";
 
 import { verifyToken } from "../middleware/verifyToken.js";
-import { body } from "express-validator";
-import { validate } from "../middleware/authValidator.js";
+import { tripValidation,planValidation,documentValidation,validate } from "../middleware/authValidator.js";
 
 const router = express.Router();
 
 //middleware to allow routes to only logged-in user.
 router.use(verifyToken);
-
-//Trip validation
-const tripValidation = [
-  body("trip_name").notEmpty().withMessage("Trip name is required."),
-  body("location").notEmpty().withMessage("Location is required."),
-  body("start_date").notEmpty().withMessage("Start date is required."),
-];
-
-//Plan validation
-
-const planValidation = [
-  body("category").notEmpty().withMessage("Category is required."),
-  body("budget_amount").isNumeric().withMessage("Budget amount must a number."),
-];
-
-//Document validation
-const documentValidation = [
-  body("document_type").notEmpty().withMessage("Document type is required."),
-  body("status").notEmpty().withMessage("Status is required."),
-];
 
 //Trip routes
 router.post("/", tripValidation, validate, createTripController);

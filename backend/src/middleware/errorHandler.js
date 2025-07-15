@@ -1,9 +1,12 @@
-export const errorHandler =(err,req,res,next)=>{
-    const statusCode = err.statusCode || 500;
-    const message = err.message || "Internal Server Error";
+export const errorHandler =(error,req,res,next)=>{
+    const statusCode = error.statusCode || 500;
+    const message = error.message || "Internal Server Error";
+    const errors = error.errors || undefined;
 
-    res.status(statusCode).json({
+    const response = {
         success:false,
-        message:message
-    });
+        message,
+    };
+    if(errors) response.errors = errors;
+    res.status(statusCode).json(response);
 }
