@@ -3,21 +3,28 @@ import {
     getUserController, 
     registerUserController,
     getAllUsersController,
-    LoginUser
+    LoginUser,
 } from '../controllers/userController.js';
 import { verifyToken } from '../middleware/verifyToken.js';
-import { loginValidation,registerValidation,validate } from '../middleware/authValidator.js';
+import {
+    loginValidation,
+    registerValidation,
+    validate,
+} from '../middleware/authValidator.js';
 
 
 const router = express.Router();
 
-//Get /api/users : Returns all the users
+//Get  all the users (Only for testing purpose)
 router.get('/all',getAllUsersController);
 
+//get current logged in user
 router.get('/',verifyToken,getUserController);
 
+//register new user
 router.post('/register/',registerValidation,validate,registerUserController);
 
+//login
 router.post('/login/',loginValidation,validate,LoginUser);
 
 
