@@ -17,7 +17,7 @@ import {
 } from "../controllers/documentController.js";
 
 import { verifyToken } from "../middleware/verifyToken.js";
-import { tripValidation,planValidation,documentValidation,validate } from "../middleware/authValidator.js";
+import { tripValidation,planValidation,documentValidation,validate } from "../middleware/validators.js";
 
 const router = express.Router();
 
