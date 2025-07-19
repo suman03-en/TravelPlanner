@@ -10,8 +10,8 @@ dotenv.config();
 const port = process.env.PORT;
 
 const startServer = async () => {
-  await createTripTable();
   await createUserTable();
+  await createTripTable();
   await createPlanTable();
   await createDocumentTable();
   app.listen(port, () => {
