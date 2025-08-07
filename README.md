@@ -46,6 +46,11 @@ In today’s fast-paced world, organizing trips can be complicated due to the la
 * **View Documents**: Access uploaded documents per trip.
 * **Track Document Status**: Mark documents as available or pending.
 
+### 4️⃣ Plan Management
+
+* **Upload Plans**: Add various plans like shopping etc.
+* **View Plans**: Access added plans per trip.
+
 ---
 
 ## Tech Stack
@@ -68,7 +73,6 @@ TravelPlanner-backend/
 ├── routes/            # API route definitions
 ├── migrations/        # DB migration files
 ├── middlewares/       # Auth and error handlers
-├── views/              # EJS templates (optional UI layer)
 ├── config/             # DB configurations
 ├── server.js           # Entry point
 └── README.md           # Documentation
