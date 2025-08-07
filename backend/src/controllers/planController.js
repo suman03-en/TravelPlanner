@@ -1,14 +1,22 @@
 import { createPlan, getAllPlans, deletePlan } from "../models/planModel.js";
+import { getTrip } from "../models/tripModel.js";
 import { CustomError } from "../utils/customError.js";
 
-export const createPlanController = async (req, res) => {
+export const createPlanController = async (req, res,next) => {
   const trip_id = Number(req.params.id);
+  const user_id = req.user.user_id;
   const cleaned_data = {
     trip_id,
     category: req.body.category,
     budget_amount: req.body.budget_amount,
   };
   try {
+    //handling referential integrity error
+    // if user want to create plans for trip which doesnt exists
+    const trip = await getTrip(user_id,trip_id);
+    if(!trip){
+        next(new CustomError("Trip doesnot exists", 404));
+    }
     const plan = await createPlan(cleaned_data);
     if (!plan) {
       return next(new CustomError("Failed to create plan", 400));
@@ -25,7 +33,13 @@ export const createPlanController = async (req, res) => {
 
 export const getPlansController = async (req, res, next) => {
   const trip_id = req.params.id;
+  const user_id = req.user.user_id;
+
   try {
+    const trip = await getTrip(user_id,trip_id);
+    if(!trip){
+        next(new CustomError("Trip doesnot exists", 404));
+    }
     const plans = await getAllPlans(trip_id);
     return res.status(200).json({
       success: true,
