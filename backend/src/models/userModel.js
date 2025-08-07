@@ -11,15 +11,25 @@ export const createUserTable= async()=>{
         password VARCHAR(255) NOT NULL
         );
         `;
-        await pool.query(query);
-        console.log("Users table created or already exists.");
+        try{
+            await pool.query(query);
+            console.log("Users table created or already exists.");
+        }catch(error){
+            console.log("Error occured in db.",error);
+        }
     };
 
 
 export const getAllUsers = async()=>{
     const query = `SELECT user_id,name,email FROM users`;
-    const result = await pool.query(query);
-    return result.rows;
+    try{
+        const result = await pool.query(query);
+        return result.rows;
+    }catch(error){
+        return {error:"Error occured while fetching users",
+            detail:error
+        }
+    }
 };
 
 export const insertUser = async(cd)=>{
