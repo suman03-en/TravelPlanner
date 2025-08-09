@@ -13,21 +13,21 @@ It provides a **user-friendly interface** for users to login, create trips, uplo
   
 ## Project structure
 
-**app/                    #app folder**
- |--components/           #components used in the projects
- |      |--- login.js            #login screen function
- |      |---signUp.js            # signup screen function
- |--screens/              #screens in th projects
- |    |---dashboard/          # main functionality screen folder
- |         |---- _layout.js        #navigation bar layout
- |         |---- documents.js
- |         |---- home.js
- |         |---- profile.js
- |         |----trip.js
- |--index.js            # redirection 
- |--welcome.js          #welcome screen
-assets/                #pictures and other images used folder
-
+TravelPlanner-frontend/
+├── app/                    #app folder**
+    ├──components/           #components used in the projects
+          ├──  login.js            #login screen function
+          ├──  signUp.js            # signup screen function
+    ├──screens/              #screens in th projects
+       ├──dashboard/          # main functionality screen folder
+             ├── _layout.js        #navigation bar layout
+             ├── documents.js
+             ├── home.js
+             ├── profile.js
+             ├──trip.js
+   ├── index.js            # redirection 
+   ├── welcome.js          #welcome screen
+ ├──assets/                #pictures and other images used folder
 
 
 ## Technologies Used
