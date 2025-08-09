@@ -1,4 +1,4 @@
-import { insertUser, getAllUsers, getCurrentUser } from "../models/userModel.js";
+import { insertUser,getCurrentUser } from "../models/userModel.js";
 import { autheticate, generateToken } from "../utils/auth.js";
 import { CustomError } from "../utils/customError.js";
 
