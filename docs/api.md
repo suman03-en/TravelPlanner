@@ -90,20 +90,6 @@
 
 ---
 
-### Get All Users
-- **GET** `/api/users/all`
-- **Success Response:**
-```json
-{
-  "success": true,
-  "users": [
-    { "user_id": 1, "name": "John Doe", "email": "john@example.com" }
-  ]
-}
-```
-
----
-
 ## Trip Endpoints (All require `Authorization: Bearer <token>`)
 
 ### Create Trip
