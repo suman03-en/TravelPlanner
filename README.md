@@ -127,24 +127,9 @@ npm run dev
 
 ---
 
-## API Endpoints
+## API Documentation
 
 You can find the full API documentation [click here](https://github.com/suman03-en/TravelPlanner-backend/blob/main/docs/api.md).
-
-
-| Method     | Endpoint             | Description              |
-| ---------- | -------------------- | ------------------------ |
-| **POST**   | `/users/register`    | Register new user        |
-| **POST**   | `/users/login`       | Login user               |
-| **GET**    | `/trips`             | Get all trips (by user)  |
-| **POST**   | `/trips`             | Create a new trip        |
-| **PUT**    | `/trips/:id`         | Update trip              |
-| **DELETE** | `/trips/:id`         | Delete trip              |
-| **POST**   | `/documents`         | Upload document          |
-| **GET**    | `/documents/:tripId` | Get documents for a trip |
-| **GET**    | `/trip/:tripId/plans` | Get all plans for a trip |
-| **CREATE**    | `/trips/:tripId/plans` | Create plans for a trip |
-| **DELETE**    | `/plan/:planId` | Delete plan for a trip |
 
 ---
 
