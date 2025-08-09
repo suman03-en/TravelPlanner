@@ -20,18 +20,6 @@ export const createUserTable= async()=>{
     };
 
 
-export const getAllUsers = async()=>{
-    const query = `SELECT user_id,name,email FROM users`;
-    try{
-        const result = await pool.query(query);
-        return result.rows;
-    }catch(error){
-        return {error:"Error occured while fetching users",
-            detail:error
-        }
-    }
-};
-
 export const insertUser = async(cd)=>{
     const hashedPassword = await hashPassword(cd.password);
     const query = `
