@@ -1,7 +1,7 @@
 # TravelPlanner Backend
 
-**TravelPlanner** is a smart and organized trip planning system designed to help users efficiently manage trips, budgets, and related travel documents.
-This repository contains the **backend API**, developed with **Node.js**, **Express.js**, and **PostgreSQL**, supporting user management, trip handling, and document management.
+**TravelPlanner** is a smart and organized trip planning system designed to help users efficiently manage trips, budgets, plans and related travel documents.
+This repository contains the **backend API**, developed with **Node.js**, **Express.js**, and **PostgreSQL**, supporting user management, trip handling,plan and document management.
 
 ---
 
@@ -21,7 +21,7 @@ This repository contains the **backend API**, developed with **Node.js**, **Expr
 
 ## Introduction
 
-In today’s fast-paced world, organizing trips can be complicated due to the lack of time and tools. **TravelPlanner** addresses this problem by providing a centralized system for trip planning, budget management, and document storage. This backend system is built to support an Android application where users can register, create trips, manage budgets, and securely store travel-related documents.
+In today’s fast-paced world, organizing trips can be complicated due to the lack of time and tools. **TravelPlanner** addresses this problem by providing a centralized system for trip planning, budget management,making plans for trips and document storage. This backend system is built to support an Android application where users can register, create trips, manage budgets, and securely store travel-related documents.
 
 ---
 
@@ -128,6 +128,9 @@ npm run dev
 ---
 
 ## API Endpoints
+
+You can find the full API documentation [click here](https://github.com/suman03-en/TravelPlanner-backend/blob/main/docs/api.md).
+
 
 | Method     | Endpoint             | Description              |
 | ---------- | -------------------- | ------------------------ |
