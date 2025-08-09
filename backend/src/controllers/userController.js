@@ -34,18 +34,6 @@ export const getUserController = async (req, res,next) => {
   }
 };
 
-export const getAllUsersController = async (req, res,next) => {
-  try {
-    const users = await getAllUsers();
-    return res.status(200).json({
-      success:true,
-      users,
-    });
-  } catch (error) {
-    next(new CustomError(error.message || "Failed to fetch user",500));
-  }
-};
-
 export const LoginUser = async (req, res,next) => {
   const { email, password } = req.body;
   try {
