@@ -38,10 +38,10 @@ TravelPlanner-frontend
 - Expo Vector Icons for UI icons  
 
 ## Getting Started
-Running the App
-npx expo start
-Start the server:
-npm start
+# Running the App
+    -npx expo start
+# Start the server:
+    -npm start
 ### Prerequisites
 - Node.js and npm installed  
 - Expo installed (`npm install -g expo-cli`)  
