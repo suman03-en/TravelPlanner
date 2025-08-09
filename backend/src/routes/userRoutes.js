@@ -2,7 +2,6 @@ import express from 'express';
 import { 
     getUserController, 
     registerUserController,
-    getAllUsersController,
     LoginUser,
 } from '../controllers/userController.js';
 import { verifyToken } from '../middleware/verifyToken.js';
@@ -14,9 +13,6 @@ import {
 
 
 const router = express.Router();
-
-//Get  all the users (Only for testing purpose)
-router.get('/all',getAllUsersController);
 
 //get current logged in user
 router.get('/',verifyToken,getUserController);
