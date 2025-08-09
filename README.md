@@ -13,7 +13,7 @@ It provides a **user-friendly interface** for users to login, create trips, uplo
   
 ## Project structure
 
-app/                    #app folder
+**app/                    #app folder**
  |--components/           #components used in the projects
  |      |--- login.js            #login screen function
  |      |---signUp.js            # signup screen function
