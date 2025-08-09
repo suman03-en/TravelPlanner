@@ -51,18 +51,18 @@ npm start
 1. Clone the repo  
    https://github.com/suman03-en/TravelPlanner-backend.git
 2. install dependencies
-    npm install
+    - npm install
 
 ### Outcomes
-User Authentication
+-User Authentication
 Users can register and log in securely using the provided login and sign-up components.
 
-Dashboard Navigation
+-Dashboard Navigation
 Smooth navigation across multiple dashboard screens including home, profile, documents, and trip details.
 
-Document Management
+-Document Management
 Users can upload, view, and manage documents related to their trips.
 
-Responsive UI
+-Responsive UI
 The app provides a user-friendly interface that works seamlessly across different devices and screen sizes.
 
