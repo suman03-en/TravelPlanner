@@ -13,8 +13,9 @@ It provides a **user-friendly interface** for users to login, create trips, uplo
   
 ## Project structure
 
-TravelPlanner-frontend/
-├── app/                    #app folder**
+TravelPlanner-frontend
+```bash
+├── app/                    #app folder
     ├──components/           #components used in the projects
           ├──  login.js            #login screen function
           ├──  signUp.js            # signup screen function
@@ -29,7 +30,7 @@ TravelPlanner-frontend/
    ├── welcome.js          #welcome screen
  ├──assets/                #pictures and other images used folder
 
-
+```
 ## Technologies Used
 - React Native 
 - AsyncStorage for local data persistence  
