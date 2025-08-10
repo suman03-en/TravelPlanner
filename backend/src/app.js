@@ -11,10 +11,20 @@ app.use(express.json());
 app.use(cors());
 
 //routes
+//index page
+app.use('/',(req,res)=>{
+    res.status(200).json(
+        {
+            success:true,
+            message:"API is live",
+        }
+    )
+});
 app.use('/api/users',userRoutes);
 app.use('/api/trips',tripRoutes);
 app.use('/api/plans',planRoutes); // only delete
 app.use('/api/documents',documentRoutes); // only delete
+
 
 //Handles if not defined routes are requested
 app.use((req,res,next)=>{
